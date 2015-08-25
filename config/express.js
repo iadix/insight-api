@@ -24,6 +24,7 @@ module.exports = function(app, historicSync, peerSync) {
 
   app.set('showStackError', true);
   app.set('json spaces', 0);
+  app.set('trust proxy', 'loopback')
 
   app.enable('jsonp callback');
   app.use(config.apiPrefix, setHistoric);
