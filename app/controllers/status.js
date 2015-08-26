@@ -27,9 +27,11 @@ exports.show = function(req, res) {
     case 'getDifficulty':
       statusObject.getDifficulty(returnJsonp);
       break;
+/*
     case 'getTxOutSetInfo':
       statusObject.getTxOutSetInfo(returnJsonp);
       break;
+*/
     case 'getLastBlockHash':
       statusObject.getLastBlockHash(returnJsonp);
       break;
