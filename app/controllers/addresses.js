@@ -79,7 +79,15 @@ exports.show = function(req, res, next) {
   }
 };
 
-
+exports.shorturl = function(req, res, next) {
+    var shortaddr = req.param('shortaddr');
+    tDb.fromShortAddr(shortaddr, function (err, addr) {
+        if (err) {
+            return res.status(404).send(err);
+        }
+        res.jsonp({ address: addr });
+    });
+};
 
 exports.utxo = function(req, res, next) {
   if (!checkSync(req, res)) return;
