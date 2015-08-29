@@ -82,6 +82,19 @@ exports.show = function(req, res) {
   }
 };
 
+/*
+ * Find transaction id by short txid
+ */
+exports.short = function(req, res, next) {
+    var shorttx = req.param('shorttx');
+    tDb.fromShortTx(shorttx, function (err, txid) {
+        if (err) {
+            return res.status(404).send(err);
+        }
+        res.jsonp({ txid: txid });
+    });
+};
+
 /**
  * Show raw transaction
  */

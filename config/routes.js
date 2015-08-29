@@ -23,6 +23,7 @@ module.exports = function(app) {
   // Transaction routes
   var transactions = require('../app/controllers/transactions');
   app.get(apiPrefix + '/tx/:txid', transactions.show);
+  app.get(apiPrefix + '/tx-short/:shorttx', transactions.short);
   app.param('txid', transactions.transaction);
   app.get(apiPrefix + '/txs', transactions.list);
   app.post(apiPrefix + '/tx/send', transactions.send);
