@@ -33,7 +33,7 @@ module.exports = function(app) {
 
   // Address routes
   var addresses = require('../app/controllers/addresses');
-  app.get(apiPrefix + '/addr-shorturl/:shortaddr', addresses.shorturl);
+  app.get(apiPrefix + '/addr-short/:shortaddr', addresses.short);
   app.get(apiPrefix + '/addr/:addr', addresses.show);
   app.get(apiPrefix + '/addr/:addr/utxo', addresses.utxo);
   app.get(apiPrefix + '/addrs/:addrs/utxo', addresses.multiutxo);

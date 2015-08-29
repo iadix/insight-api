@@ -79,7 +79,7 @@ exports.show = function(req, res, next) {
   }
 };
 
-exports.shorturl = function(req, res, next) {
+exports.short = function(req, res, next) {
     var shortaddr = req.param('shortaddr');
     tDb.fromShortAddr(shortaddr, function (err, addr) {
         if (err) {
