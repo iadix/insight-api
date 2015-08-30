@@ -16,6 +16,8 @@ var RpcClient   = bitcore.RpcClient;
 var config      = require('../../config/config');
 var bitcoreRpc  = imports.bitcoreRpc || new RpcClient(config.bitcoind);
 
+var base58      = require('base58-native');
+
 var tDb = require('../../lib/TransactionDb').default();
 var bdb = require('../../lib/BlockDb').default();
 
@@ -86,7 +88,10 @@ exports.show = function(req, res) {
  * Find transaction id by short txid
  */
 exports.short = function(req, res, next) {
-    var shorttx = req.param('shorttx');
+    var shorttx = base58.decode(req.param('shorttx')).toString("hex");
+
+    console.log("req.param = " + req.param('shorttx'));
+    console.log("decoded = " + shorttx);
     tDb.fromShortTx(shorttx, function (err, txid) {
         if (err) {
             return res.status(404).send(err);
