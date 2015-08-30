@@ -42,6 +42,22 @@ Status.prototype.getDifficulty = function(next) {
   });
 };
 
+Status.prototype.getBlockCount = function(next) {
+  var that = this;
+  async.series([
+    function (cb) {
+      rpc.getBlockCount(function(err, bc){
+        if (err) return cb(err);
+
+        that.blockcount = bc.result;
+        return cb();
+      });
+    }
+  ], function (err) {
+    return next(err);
+  });
+};
+
 Status.prototype.getTxOutSetInfo = function(next) {
   var that = this;
   async.series([

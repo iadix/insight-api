@@ -16,17 +16,23 @@ exports.show = function(req, res) {
   var statusObject = new Status();
 
   var returnJsonp = function (err) {
-    if (err || ! statusObject)
-      return common.handleErrors(err, res);
-    else {
-      res.jsonp(statusObject);
+    if (err || ! statusObject) {
+        return common.handleErrors(err, res);
+    } else {
+        res.jsonp(statusObject);
     }
   };
 
   switch(option) {
+
+    case 'getBlockCount':
+      statusObject.getBlockCount(returnJsonp);
+      break;
+
     case 'getDifficulty':
       statusObject.getDifficulty(returnJsonp);
       break;
+
 /*
     case 'getTxOutSetInfo':
       statusObject.getTxOutSetInfo(returnJsonp);
@@ -35,14 +41,17 @@ exports.show = function(req, res) {
     case 'getLastBlockHash':
       statusObject.getLastBlockHash(returnJsonp);
       break;
+
     case 'getBestBlockHash':
       statusObject.getBestBlockHash(returnJsonp);
       break;
+
     case 'getInfo':
     default:
       statusObject.getInfo(returnJsonp);
   }
 };
+
 
 exports.sync = function(req, res) {
   if (req.historicSync)
