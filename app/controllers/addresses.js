@@ -8,6 +8,7 @@ var _ = require('lodash');
 var Address = require('../models/Address');
 var common = require('./common');
 var async = require('async');
+var bitcore = require('bitcore');
 
 var MAX_BATCH_SIZE = 100;
 var RPC_CONCURRENCY = 5;
@@ -78,6 +79,10 @@ exports.show = function(req, res, next) {
     });
   }
 };
+
+exports.validate = function(req, res, next) {
+  return res.jsonp(bitcore.Address.validate(req.param('addr')));
+}
 
 exports.short = function(req, res, next) {
     var shortaddr = req.param('shortaddr');
