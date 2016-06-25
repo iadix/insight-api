@@ -2,7 +2,7 @@
   "name": "insight-iadixcore-api",
   "description": "An open-source iadixcoin blockchain API. The Insight API provides you with a convenient, powerful and simple way to query and broadcast data on the bitcoin network and build your own services with it.",
   "version": "0.2.18",
-  "repository": "git://github.com/iadixofficial/insight-api.git",
+  "repository": "git://github.com/iadix/insight-api.git",
   "contributors": [{
     "name": "Matias Alejo Garcia",
     "email": "ematiu@gmail.com"
@@ -26,9 +26,9 @@
     "email": "jungans@gmail.com"
   }],
   "bugs": {
-    "url": "https://github.com/iadixofficial/insight-api/issues"
+    "url": "https://github.com/iadix/insight-api/issues"
   },
-  "homepage": "https://github.com/iadixofficial/insight-api",
+  "homepage": "https://github.com/iadix/insight-api",
   "license": "MIT",
   "keywords": [
     "insight",
@@ -37,7 +37,7 @@
     "bitcoin api",
     "blockchain api",
     "json",
-    "bitcore"
+    "bitcore",
     "iadixcore"
   ],
   "engines": {
@@ -52,7 +52,7 @@
     "base58-native": "0.1.2",
     "bignum": "*",
     "morgan": "*",
-    iadixcore": "git://github.com/iadixofficial/iadixcore.git",
+    "iadixcore": "git://github.com/iadix/iadixcore.git",
     "bufferput": "git://github.com/bitpay/node-bufferput.git",
     "buffertools": "*",
     "commander": "^2.3.0",
