@@ -51,7 +51,7 @@ exports.blockindex = function(req, res, next, height) {
 
 var getBlock = function(blockhash, cb) {
   bdb.fromHashWithInfo(blockhash, function(err, block) {
-    if (err) {
+    if ((err)||(typeof block==='undefined')) {
       console.log(err);
       return cb(err);
     }
@@ -130,7 +130,7 @@ exports.list = function(req, res) {
       async.mapSeries(blockList,
         function(b, cb) {
           getBlock(b.hash, function(err, info) {
-            if (err) {
+            if ((err)||(typeof info === 'undefined')) {
               console.log(err);
               return cb(err);
             }
